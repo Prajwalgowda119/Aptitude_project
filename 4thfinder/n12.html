@@ -124,43 +124,17 @@
 <script>
         const randarr = new Array(9);
 
-
-     
-
-        function divide() {
-
-
-// Generate random numbers a and b
-var a = Math.floor(Math.random() * 100) + 1; // Generate a random number between 1 and 100
-var b = Math.floor(Math.random() * 100) + 2; // Generate a random number between 2 and 100
-
-do {
-  a = Math.floor(Math.random() * 100) + 1;   // Generate a random number between 1 and 100
-  b = Math.floor(Math.random() * 100) + 2;  // Generate a random number between 2 and 100
-} while (a % b != 0  || a==b );
-
-return [a, b];
-}
   
     function start(){
 
-        let randa=new Array(2);
-        randa=divide();
-         randarr[1]=randa[0];
-         randarr[2]=randa[1];
-        let randb=new Array(2);
-        randb=divide();
-        randarr[3]=randb[0];
-         randarr[4]=randb[1];
-        let randc=new Array(2);
-        randc=divide();
-        randarr[5]=randc[0];
-         randarr[6]=randc[1];
-         let randd=new Array(2);
-         randd=divide();
-         randarr[7]=randd[0];
-         randarr[8]=randd[1];
-        
+      randarr[1]= Math.floor(Math.random() * 20) + 2;
+        randarr[2]=Math.floor(Math.random() * 20) + 2;
+        randarr[3]=Math.floor(Math.random() * 20) + 2;
+        randarr[4]=Math.floor(Math.random() * 20) + 2;
+        randarr[5]= Math.floor(Math.random() * 20) + 2;
+        randarr[6]= Math.floor(Math.random() * 20) + 2;
+        randarr[7]= Math.floor(Math.random() * 20) + 2;
+        randarr[8]= Math.floor(Math.random() * 20) + 2;
 
 document.getElementById("a1").innerHTML=randarr[1];
 document.getElementById("a2").innerHTML=randarr[3];
@@ -170,12 +144,12 @@ document.getElementById("b1").innerHTML=randarr[2];
 document.getElementById("b2").innerHTML=randarr[4];
 document.getElementById("b3").innerHTML=randarr[6];
 document.getElementById("b4").innerHTML=randarr[8];
-document.getElementById("c1").innerHTML=randarr[1]/randarr[2];
-document.getElementById("c2").innerHTML=randarr[3]/randarr[4];
-document.getElementById("c3").innerHTML=randarr[5]/randarr[6];
+document.getElementById("c1").innerHTML=Math.pow(randarr[1]-randarr[2], 2);
+document.getElementById("c2").innerHTML=Math.pow(randarr[3]-randarr[4], 2);
+document.getElementById("c3").innerHTML=Math.pow(randarr[5]-randarr[6], 2);
     }
     function check(){
-       var ab=parseInt(randarr[7]/randarr[8]);
+       var ab=parseInt(Math.pow(randarr[7]-randarr[8], 2));
        var abc= parseInt(document.getElementById("c4").value);
         if(abc==ab)
         {
