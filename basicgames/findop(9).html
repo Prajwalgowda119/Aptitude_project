@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic 1</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<style>
+    .container {
+    max-width: 350px; /* Adjusted width */
+    height: 800px; /* Adjusted height */
+    margin: 0 auto;
+    padding: 1px;
+    flex-wrap: nowrap;
+    border-radius: 2%;
+    background: rgb(233,228,233);
+background: linear-gradient(90deg, rgba(233,228,233,1) 0%, rgba(9,121,118,1) 100%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 20px; /* Increased margin-bottom */
+}
+#A,#B,#OP,#Q,#D,#res,#C{
+    font-size: 50px;
+}
+
+
+
+
+ .row b {
+    height: 700px; /* Adjusted height */
+    margin-right: 20px; /* Increased margin-right */
+}
+#bu{
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 70px;
+}
+#bu2{
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100px;
+}
+#OP{
+     width: 60px;
+     height: 40px;
+}
+
+</style>
+<body>
+   
+    <div class="container">
+     <div id="row">
+        <h1 style="text-align: center; font-family: sans-serif;">Basic 1</h1>
+     </div>
+     <div id="row">
+        <h2 style="text-align: center; font-family: sans-serif;">Answer the equation</h2>
+     </div>
+     <div id="row" style="text-align: center;">
+        <b id="A" ></b>
+        <b id="Q" >?</b>
+        <b id="B" ></b>
+        <b id="D">=</b>
+        <b id="C"></b>
+     </div>
+     <div id="row" style="text-align: center;">
+        <input type="text" id="OP" placeholder="?">
+     </div>
+     <div id="row" style="text-align:right;">
+        <input type="button" id="bu" value="check" onclick="check()">
+     </div>
+     <div id="row" style="text-align:right;">
+     </div>
+     <div style="text-align: center;">
+        <b id="res"></b>
+     </div>
+     <div id="row" >
+        <input type="button" id="bu2" value="PlayAgain" onclick="rel()">
+     </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+
+
+<script>
+ 
+ var a,b;
+ var c,o;
+
+function gen()
+{
+    var num = Math.floor(Math.random() * 4) + 1;
+    if(num==1)
+    {
+       
+         a=Math.floor(Math.random() * 9) + 1;
+         b=Math.floor(Math.random() * 9) + 1;
+         c=a+b;
+         o="+";
+         document.getElementById("A").innerHTML=a;
+         document.getElementById("B").innerHTML=b;
+         document.getElementById("C").innerHTML=c;
+      
+
+    }
+    else if(num==2)
+    {
+        
+        a = Math.floor(Math.random() * (30 - 2 + 1)) + 2;
+        b = Math.floor(Math.random() * (a - 2)) + 2;
+        c=a-b;
+        o="-";
+        document.getElementById("A").innerHTML=a;
+         document.getElementById("B").innerHTML=b;
+         document.getElementById("C").innerHTML=c;
+     
+
+    }
+    else if(num==3)
+    {
+       
+        a=Math.floor(Math.random() * 9) + 1;
+         b=Math.floor(Math.random() * 9) + 1;
+         c=a*b;
+         o="*";
+        document.getElementById("A").innerHTML=a;
+         document.getElementById("B").innerHTML=b;
+         document.getElementById("C").innerHTML=c;
+     
+    }
+    else if(num==4){
+        a = Math.floor(Math.random() * 100) + 1;
+
+// Generate a random number between 1 and 100 (inclusive) for 'b'
+do {
+    b = Math.floor(Math.random() * 100) + 1;
+} while (a % b !== 0 || a === b);
+
+         c=a/b;
+         o="/";
+         document.getElementById("A").innerHTML=a;
+         document.getElementById("B").innerHTML=b;
+         document.getElementById("C").innerHTML=c;
+    }
+
+}
+function  check()
+{
+    var Aans=document.getElementById("OP").value;
+    if(Aans==o)
+    {
+        document.getElementById("res").innerHTML="Correct";
+    }
+    else{
+        document.getElementById("res").innerHTML="Wrong";
+    }
+}
+
+
+        window.onload = function() {
+gen();
+        };
+        function rel() {
+    setTimeout(function() {
+        location.reload();
+    }, 1000); // Reload after 1 second (1000 milliseconds)
+}
+</script>
+</html>

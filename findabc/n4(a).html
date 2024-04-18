@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+       background-color: lightblue;
+       width: 500px;
+       height: 600px;
+    }
+    b{
+        font-size: 80px;
+    }
+    #enter{
+        font-size: 30px;
+    }
+    #c4{
+        width: 65px;
+        height: 35px;
+    }
+    #mit,#playagain{
+        height: 40px;
+        width:70px;
+        border-left: 40px;
+        
+    }
+    #result,#correctans{
+        font-size: 40px;
+    }
+    #mit:hover {
+  background-color: #0056b3;
+}
+
+   </style>
+<body>
+   
+    <h1>4th finder pattern-(a)(b)(c) </h1>
+    <div class="container">
+      <div class="row">
+     <b>A+B=</b>
+     <b id="a+b"></b>
+      </div>
+      <div class="row">
+        <b>B+C=</b>
+        <b id="b+c"></b>
+      </div>
+      <div class="row">
+        <b>C+A=</b>
+        <b id="c+a"></b>
+      </div>
+      <div class="row">
+        <b>C</b>
+        <b>=</b>
+        <b>?</b>
+      </div>
+      <div class="row">
+        <b id="enter">enter A =</b>
+        <input type="number" id="c4" placeholder="?">
+        <input type="button" id="mit" value="check" onclick="check()">
+      </div>
+      <div class="row">
+        <b id="result" ></b>
+        <br>
+        <b id="correctans"></b>
+      </div>
+      <div class="row">
+        <input type="button" id="playagain" value="play again" onclick="rel()">
+      </div>
+    </div>
+
+</body>
+<script>
+    const randarr = new Array(5);
+    let n; // Declare n outside the loop
+
+    for (let i = 1; i < 5; i++) {
+        randarr[i] = Math.floor(Math.random() * 10) + 1;
+    }
+
+    function start() {
+      var a=randarr[1];
+      var b=randarr[2];
+      var c=randarr[3];
+        document.getElementById("a+b").innerHTML = a+b;
+        document.getElementById("b+c").innerHTML = b+c;
+        document.getElementById("c+a").innerHTML = c+a;
+    }
+
+    function check() {
+        let c4ans = randarr[1];
+        var inc4 = parseInt(document.getElementById("c4").value);
+        if (c4ans == inc4) {
+            document.getElementById("result").innerHTML = "correct";
+        } else {
+            document.getElementById("result").innerHTML = "wrong";
+            document.getElementById("correctans").innerHTML ="A is "+randarr[1];
+        }
+    }
+
+    window.onload = function () {
+        start();
+    };
+
+    function rel() {
+        location.reload();
+    }
+</script>
+
+</script>
+</html>

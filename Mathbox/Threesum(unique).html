@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add 3 Unique</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<style>
+    .container {
+    max-width: 350px; /* Adjusted width */
+    height: 800px; /* Adjusted height */
+    margin: 0 auto;
+    padding: 1px;
+    flex-wrap: nowrap;
+    border-radius: 2%;
+    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 20px; /* Increased margin-bottom */
+}
+
+.row input {
+    padding: 5px 10px; /* Adjusted padding */
+    margin: 0 15px; /* Adjusted margin */
+    cursor: pointer;
+    border-color: blueviolet;
+    border-radius: 10%;
+    width: 50px; /* Adjusted width */
+}
+
+ .row b {
+    height: 30px; /* Adjusted height */
+    margin-right: 20px; /* Increased margin-right */
+}
+#bu{
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 70px;
+}
+#bu2{
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100px;
+}
+
+</style>
+<body>
+   
+    <div class="container">
+        <div id="row">
+            <h1 style="text-align: center; font-family: sans-serif;">ADD 3</h1>
+        </div>
+        <div id="row">
+            <h2 style="text-align: center; font-family: sans-serif;">(Unique)</h2>
+        </div>
+        <div class="row">
+            <b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</b><b id="dia1"></b>
+        </div>
+        <div class="row">
+            <input type="number" id="a" placeholder="n1">
+            <input type="number" id="b" placeholder="n2">
+            <input type="number" id="c" placeholder="n3">
+            <b id="row11"></b>
+        </div>
+        <div class="row">
+            <input type="number" id="d" placeholder="n4">
+            <input type="number" id="e" placeholder="n5">
+            <input type="number" id="f" placeholder="n6">
+            <b id="row22"></b>
+        </div>
+        <div class="row">
+            <input type="number" id="g" placeholder="n7">
+            <input type="number" id="h" placeholder="n8">
+            <input type="number" id="i" placeholder="n9">
+            <b id="row33"></b>
+        </div>
+        <div class="row">
+            <b>&emsp;</b><b id="col1"></b>
+            <b>&emsp;&emsp;&nbsp;&nbsp;&emsp;&emsp;&nbsp;&nbsp;</b><b id="col2"></b>
+            <b>&emsp;&emsp;&emsp;&nbsp;&nbsp;&emsp;</b><b id="col3"></b>
+            <b></b><b id="dia2"></b>
+        </div>
+        <div class="row">
+             <input type="button"  id ="bu" value="check" onclick="check()" >
+             <input type="button"  id ="bu" value="Answer" onclick="check(),answer()" >
+             <input type="button" id="bu2" value="Play Again" onclick="rel()" >
+        </div>
+      
+        <div class="row">
+            <b id="result" style="font-size: 30px;text-align:center;width: 100%;"></b>
+       </div>
+       <div>
+        <b id="correctansweris" style="font-size: 30px;text-align:center;width: 100%;color: rgb(31, 93, 0);"></b>
+       </div>
+       <div id="row">
+        <b>&emsp;&emsp;<b>&emsp;&emsp;</b></b>
+        <b id="row1n1" style="font-size: 40px;"></b>
+        <b>&emsp;&emsp;<b>&emsp;&emsp;</b></b>
+        <b id="row1n2" style="font-size: 40px;"></b>
+        <b>&emsp;&emsp;<b>&emsp;&emsp;</b></b>
+        <b id="row1n3" style="font-size: 40px;"></b>
+       </div>
+       <div id="row">
+        <b>&emsp;&emsp;<b>&emsp;&emsp;</b></b>
+        <b id="row2n1" style="font-size: 40px;"></b>
+        <b>&emsp;&emsp;<b>&emsp;&emsp;</b></b>
+        <b id="row2n2" style="font-size: 40px;"></b>
+        <b>&emsp;&emsp;<b>&emsp;&emsp;</b></b>
+        <b id="row2n3" style="font-size: 40px;"></b>
+       </div>
+       <div id="row">
+        <b>&emsp;&emsp;<b>&emsp;&emsp;</b></b>
+        <b id="row3n1" style="font-size: 40px;"></b>
+        <b>&emsp;&emsp;<b>&emsp;&emsp;</b></b>
+        <b id="row3n2" style="font-size: 40px;"></b>
+        <b>&emsp;&emsp;<b>&emsp;&emsp;</b></b>
+        <b id="row3n3" style="font-size: 40px;"></b>
+       </div>
+    
+    
+    </div>
+    <script src="script.js"></script>
+</body>
+
+
+
+<script>
+   var numbers = [];
+function gen() {
+var usedNumbers = [];
+for (var i = 1; i <= 9; i++) {
+var randomNumber;
+do {
+    randomNumber = Math.floor(Math.random() * 9) + 1; // Generate random number between 1 and 10 (inclusive)
+} while (usedNumbers.includes(randomNumber)); // Check if the number has already been used
+numbers[i] = randomNumber;
+usedNumbers.push(randomNumber);
+}
+var row1 =numbers[1]+numbers[2]+numbers[3];
+document.getElementById("row11").innerHTML=row1;
+var row2 =numbers[4]+numbers[5]+numbers[6];
+document.getElementById("row22").innerHTML=row2;
+var row3 =numbers[7]+numbers[8]+numbers[9];
+document.getElementById("row33").innerHTML=row3;
+var col1 =numbers[1]+numbers[4]+numbers[7];
+document.getElementById("col1").innerHTML=col1;
+var col2 =numbers[2]+numbers[5]+numbers[8];
+document.getElementById("col2").innerHTML=col2;
+var col3 =numbers[3]+numbers[6]+numbers[9];
+document.getElementById("col3").innerHTML=col3;
+var dia1 =numbers[7]+numbers[5]+numbers[3];
+document.getElementById("dia1").innerHTML=dia1;
+var dia2 =numbers[1]+numbers[5]+numbers[9];
+document.getElementById("dia2").innerHTML=dia2;
+}
+        function check()
+        {
+            var a = parseInt(document.getElementById("a").value);
+            var b = parseInt(document.getElementById("b").value);
+            var c = parseInt(document.getElementById("c").value);
+            var d = parseInt(document.getElementById("d").value);
+            var e = parseInt(document.getElementById("e").value);
+            var f = parseInt(document.getElementById("f").value);
+            var g = parseInt(document.getElementById("g").value);
+            var h = parseInt(document.getElementById("h").value);
+            var i = parseInt(document.getElementById("i").value);
+            if(a==numbers[1]&&b==numbers[2]&&c==numbers[3]&&d==numbers[4]&&e==numbers[5]&&f==numbers[6]&&g==numbers[7]&&h==numbers[8]&&i==numbers[9])
+            {
+                let ans="Correct answer";
+                document.getElementById("result").innerHTML=ans;
+            }
+            else{
+                let ans="Wrong"
+                document.getElementById("result").innerHTML=ans;
+            
+            }
+        }
+        function answer(){
+            document.getElementById("correctansweris").innerHTML="The Correct answer is"
+                document.getElementById("row1n1").innerHTML=numbers[1];
+                document.getElementById("row1n2").innerHTML=numbers[2];
+                document.getElementById("row1n3").innerHTML=numbers[3];
+                document.getElementById("row2n1").innerHTML=numbers[4];
+                document.getElementById("row2n2").innerHTML=numbers[5];
+                document.getElementById("row2n3").innerHTML=numbers[6];
+                document.getElementById("row3n1").innerHTML=numbers[7];
+                document.getElementById("row3n2").innerHTML=numbers[8];
+                document.getElementById("row3n3").innerHTML=numbers[9];
+
+
+
+        }
+        window.onload = function() {
+            gen();
+        };
+        function rel()
+        {
+            location.reload();
+        }
+</script>
+</html>

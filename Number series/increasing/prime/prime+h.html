@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    #correct{
+        font-size: 40px;
+    }
+    .container {
+    max-width: 350px; /* Adjusted width */
+    height: 800px; /* Adjusted height */
+    margin: 0 auto;
+    padding: 1px;
+    flex-wrap: nowrap;
+    border-radius: 2%;
+    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#bu{
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 70px;
+}
+#bu2{
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100px;
+}
+b{
+    font-size: 30px;
+}
+</style>
+<body>
+    <div  class="container">
+    <h1>Number series 1</h1>
+    <h3><b id="a1"></b>
+        <b>,</b>
+        <b id="a2"></b>
+        <b>,</b>
+        <b id="a3">,</b>
+        <b>,</b>
+        <b id="a4">,</b>
+        <b>,</b>
+        <b>?</b>
+    </h3>
+    <h3>enter the answer :<input type="number" id="a5"></h3>
+    <input type="button" id="bu" style="margin: 30px;" value="check" onclick="checker()">
+    <input type="button" id="bu2" style="margin: 30px;" value="Play again" onclick="rel()">
+    <b id="correct">&#10003</b>
+    <b id="wrong">&#10060</b>
+</div>
+</body>
+<script>
+
+var a=Math.floor(Math.random() * 120) + 40;
+document.getElementById("a1").innerHTML=nthPrime(a);
+document.getElementById("a2").innerHTML=nthPrime(a+1);
+document.getElementById("a3").innerHTML=nthPrime(a+2);
+document.getElementById("a4").innerHTML=nthPrime(a+3);
+document.getElementById("correct").style.display="none";
+ document.getElementById("wrong").style.display="none";
+
+function checker()
+{
+    var ans =parseInt(document.getElementById("a5").value);
+    var proper=parseInt(nthPrime(a+4));
+    if(ans==proper){
+     
+        document.getElementById("correct").style.display="block";
+    }
+    else{
+        document.getElementById("wrong").style.display="block";
+    }
+  
+}
+function isPrime(n) {
+    if (n <= 1) return false;
+    if (n <= 3) return true;
+    if (n % 2 === 0 || n % 3 === 0) return false;
+    let i = 5;
+    while (i * i <= n) {
+        if (n % i === 0 || n % (i + 2) === 0) return false;
+        i += 6;
+    }
+    return true;
+}
+
+function nthPrime(place) {
+
+    let count = 0;
+    let num = 2;
+    while (true) {
+        if (isPrime(num)) {
+            count++;
+            if (count === place) {
+                return num;
+            }
+        }
+        num++;
+    }
+}
+function rel()
+        {
+            location.reload();
+        }
+</script>
+</html>

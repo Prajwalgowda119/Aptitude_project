@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  #correct{
+        font-size: 40px;
+    }
+    .container {
+    max-width: 350px; /* Adjusted width */
+    height: 800px; /* Adjusted height */
+    margin: 0 auto;
+    padding: 1px;
+    flex-wrap: nowrap;
+    border-radius: 2%;
+    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#bu{
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 70px;
+}
+#bu2{
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100px;
+}
+    b{
+        font-size: 80px;
+    }
+    #enter{
+        font-size: 30px;
+    }
+    #c4{
+        width: 65px;
+        height: 35px;
+    }
+
+    #result,#correctans{
+        font-size: 40px;
+    }
+    #mit:hover {
+  background-color: #0056b3;
+}
+
+   </style>
+<body>
+   
+ 
+    <div class="container">
+      <div class="row">
+        <h1>4th finder pattern-3 </h1>
+        <b id="a1"></b>
+        <b>=</b>
+        <b id="c1"></b>
+      </div>
+      <div class="row">
+        <b id="a2"></b>
+        <b>=</b>
+        <b id="c2"></b>
+      </div>
+      <div class="row">
+        <b id="a3"></b>
+        <b>=</b>
+        <b id="c3"></b>
+      </div>
+      <div class="row">
+        <b id="a4"></b>
+        <b>=</b>
+        <b>?</b>
+      </div>
+      <div class="row">
+        <b id="enter">enter the answer =</b>
+        <input type="number" id="c4" placeholder="?">
+        <input type="button" id="bu" value="check" onclick="check()">
+      </div>
+      <div class="row">
+        <b id="result" ></b>
+        <br>
+        <b id="correctans"></b>
+      </div>
+      <div class="row">
+        <input type="button" id="bu2" value="play again" onclick="rel()">
+      </div>
+    </div>
+
+</body>
+<script>
+    const randarr = new Array(4);
+    let n; // Declare n outside the loop
+
+    for (let i = 1; i < 5; i++) {
+        randarr[i] = Math.floor(Math.random() * 19) + 1;
+        n = Math.floor(Math.random() * 8) + 1; // Assign a value to n inside the loop
+    }
+
+    function start() {
+        document.getElementById("a1").innerHTML = randarr[1];
+        document.getElementById("a2").innerHTML = randarr[2];
+        document.getElementById("a3").innerHTML = randarr[3];
+        document.getElementById("a4").innerHTML = randarr[4];
+        document.getElementById("c1").innerHTML =  (2*randarr[1])+1;
+        document.getElementById("c2").innerHTML =(2*randarr[2])+1;
+        document.getElementById("c3").innerHTML =(2*randarr[3])+1;
+    }
+
+    function check() {
+        let c4ans = parseInt((2*randarr[4])+1);
+        var inc4 = parseInt(document.getElementById("c4").value);
+        if (c4ans == inc4) {
+            document.getElementById("result").innerHTML = "correct";
+        } else {
+            document.getElementById("result").innerHTML = "wrong";
+            document.getElementById("correctans").innerHTML = c4ans;
+        }
+    }
+
+    window.onload = function () {
+        start();
+    };
+
+    function rel() {
+        location.reload();
+    }
+</script>
+
+</script>
+</html>

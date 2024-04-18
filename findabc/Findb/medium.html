@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   .container{
+      max-width: 350px; /* Adjusted width */
+    height: 800px; /* Adjusted height */
+    margin: 0 auto;
+    padding: 1px;
+    flex-wrap: nowrap;
+    border-radius: 2%;
+    background: rgb(233,228,233);
+background: linear-gradient(90deg, rgba(233,228,233,1) 0%, rgba(9,121,39,1) 100%);
+    }
+    b{
+        font-size: 80px;
+    }
+    #enter{
+        font-size: 30px;
+    }
+    #c4{
+        width: 65px;
+        height: 35px;
+    }
+    #mit,#playagain{
+        height: 40px;
+        width:70px;
+        border-left: 40px;
+        
+    }
+    #result,#correctans{
+        font-size: 40px;
+    }
+    #mit:hover {
+  background-color: #0056b3;
+}
+#bu{
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 70px;
+}
+#bu2{
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100px;
+}
+   </style>
+<body>
+   
+    <h1>4th finder pattern-4(b)</h1>
+    <div class="container">
+      <div class="row">
+     <b>A+B=</b>
+     <b id="a+b"></b>
+      </div>
+      <div class="row">
+        <b>B+C=</b>
+        <b id="b+c"></b>
+      </div>
+      <div class="row">
+        <b>C+A=</b>
+        <b id="c+a"></b>
+      </div>
+      <div class="row">
+        <b>C</b>
+        <b>=</b>
+        <b>?</b>
+      </div>
+      <div class="row">
+        <b id="enter">enter B =</b>
+        <input type="number" id="c4" placeholder="?">
+        <input type="button" id="bu" value="check" onclick="check()">
+      </div>
+      <div class="row">
+        <b id="result" ></b>
+        <br>
+        <b id="correctans"></b>
+      </div>
+      <div class="row">
+        <input type="button" id="bu2" value="play again" onclick="rel()">
+      </div>
+    </div>
+
+</body>
+<script>
+    const randarr = new Array(5);
+    let n; // Declare n outside the loop
+
+    for (let i = 1; i < 5; i++) {
+        randarr[i] =  Math.floor(Math.random() * (20 - 10 + 1)) + 10;
+    }
+
+    function start() {
+      var a=randarr[1];
+      var b=randarr[2];
+      var c=randarr[3];
+        document.getElementById("a+b").innerHTML = a+b;
+        document.getElementById("b+c").innerHTML = b+c;
+        document.getElementById("c+a").innerHTML = c+a;
+    }
+
+    function check() {
+        let c4ans = randarr[2];
+        var inc4 = parseInt(document.getElementById("c4").value);
+        if (c4ans == inc4) {
+            document.getElementById("result").innerHTML = "correct";
+        } else {
+            document.getElementById("result").innerHTML = "wrong";
+            document.getElementById("correctans").innerHTML =" B is "+randarr[2];
+        }
+    }
+
+    window.onload = function () {
+        start();
+    };
+
+    function rel() {
+        location.reload();
+    }
+</script>
+
+</script>
+</html>

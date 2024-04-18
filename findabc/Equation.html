@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find A and B</title>
+    <style>
+             .container{
+      max-width: 350px; /* Adjusted width */
+    height: 800px; /* Adjusted height */
+    margin: 0 auto;
+    padding: 1px;
+    flex-wrap: nowrap;
+    border-radius: 2%;
+    background: rgb(233,228,233);
+background: linear-gradient(90deg, rgba(233,228,233,1) 0%, rgba(9,121,39,1) 100%);
+    }
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        input[type="number"] {
+    padding: 10px; /* Increase padding */
+    margin: 10px; /* Increase margin */
+    width: 60px;
+}
+
+        b {
+            font-size: 50px; /* Adjust the size according to your preference */
+        }
+        p{
+            font-size: 40px; 
+        }
+    #Aans,#Bans{
+        font-size: 40px;
+    }
+    </style>
+</head>
+<body >
+    <div class="container">
+        <h1>Find A and B by given equations</h1>
+        <p>equations are:-</p>
+  
+            
+            
+            <b>A+B=</b>
+            <b id="sum"></b>
+            <br>
+            <b>A-B=</b>
+            <b id="diff"></b>
+            <br>
+            <b>A*B=</b>
+            <b id="prod"></b>
+            <br>
+            <p>Enter your answer:</p>
+            <br>
+            <input type="number" id="Aans" placeholder="A">
+            <input type="number" id="Bans" placeholder="B">
+
+            <br>
+            <br>
+            <button onclick="check()">Check Answer</button>
+            <br>
+            <br>
+            <button onclick="rel()">Play again</button>
+            <br>
+            <b id ="result"></b>
+            <br>
+            <b id="correcta"></b>
+            <br>
+            <b id="correctb"></b>
+            </div>
+    <script>
+        var A,B;
+       function setval() {
+    
+    do {
+        A = Math.floor(Math.random() * 91) + 10; // Generate a random number between 10 and 100
+        B = Math.floor(Math.random() * 81) + 10; // Generate a random number between 10 and 90
+    } while (A % B !== 0 || A === B); // Repeat until A is divisible by B
+    document.getElementById("sum").innerHTML=A+B;
+    document.getElementById("diff").innerHTML=A-B;
+    document.getElementById("prod").innerHTML=A*B;
+}
+function check()
+{
+    var Aanswer =parseInt(document.getElementById("Aans").value);
+    var Banswer =parseInt(document.getElementById("Bans").value);
+    if( Aanswer==A && Banswer==B)
+     document.getElementById("result").innerHTML="answer is correct";
+    else
+    {
+        let answerAis=" A is "+A;
+        let answerBis=" B is "+B;
+
+    document.getElementById("result").innerHTML="answer is wrong ";
+    document.getElementById("correcta").innerHTML=answerAis;
+    document.getElementById("correctb").innerHTML=answerBis;
+    }
+}
+
+    window.onload = function() {
+            setval();
+        };
+        function rel()
+        {
+            location.reload();
+        }
+    
+  
+
+    </script>
+</body>
+</html>
