@@ -1,0 +1,166 @@
+  if (opr == 0) {
+            //+-/*
+            // (a1+b1)-((d1/d2)*m1)
+            int simp = ((d1 / d2) * m1);
+            int lowerBound = simp;
+            int upperBound = 1000;
+            int range = upperBound - lowerBound + 1;
+             b1 = r.nextInt(range) + lowerBound;
+
+            System.out.println(a1 + "+" + b1 + "-" + d1 + "/" + d2 + "*" + m1);
+
+
+
+        }
+        //2
+        else if (opr == 1) {
+            //-+/*
+            System.out.println(b1+"-"+a1+"+"+d1+"/"+d2+"*"+m1);
+
+
+        }
+        //3
+        else if (opr == 2) {
+            // /+-*
+            System.out.println(d1+"/"+d2+"+"+a1+"-"+b1+"*"+m1);
+        }
+        //4
+        else if(opr==3){
+            //  +/-*
+            System.out.println(a1+"+"+d1+"/"+d2+"-"+"b1"+"*"+m1);
+        }
+        //5
+        else if(opr==4)
+        {
+           // -/+*
+            System.out.println(b1+"-"+d1+"/"+d2+"+"+a1+"*"+m1);
+        }
+        //6
+        else if(opr==5)
+        {
+         //   /-+*
+            System.out.println(d1+"/"+d2+"-"+b1+"+"+a1+"*"+m1);
+
+        }
+        //7
+        else if(opr==6)
+        {
+            // /-*+
+            System.out.println(d1+"/"+d2+"-"+b1+"*"+m1+"+"+a1);
+        }
+        //8
+        else if(opr==7)
+        {
+              // -/*+
+            System.out.println(b1+"-"+d1+"/"+d2+"*"+m1+"+"+a1);
+        }
+        //9
+        else if(opr==8)
+        {
+            //  */-+
+            System.out.println(m1+"*"+d1+"/"+d2+"-"+b1+"+"+a1);
+
+        }
+        //10
+        else if(opr==9)
+        {
+            // /*-+
+            System.out.println(d1+"/"+d2+"*"+m1+"-"+b1+"+"+a1);
+
+        }
+        //11
+        else if(opr==10)
+        {
+            // -*/+
+            System.out.println(b1+"-"+m1+"*"+d1+"/"+d2+"+"+a1);
+
+        }
+        //12
+        else if(opr==11)
+        {
+            //  *-/+
+            System.out.println(m1+"*"+b1+"-"+d1+"/"+d2+"+"+a1);
+
+        }
+        //13
+        else if(opr==12)
+        {
+            // *+/-
+            System.out.println(m1+"*"+a1+"+"+d1+"/"+d2+"-"+b1);
+
+        }
+        //14
+        else if(opr==13)
+        {
+            // +*/-
+            System.out.println(a1+"+"+m1+"*"+d1+"/"+d2+"-"+b1);
+
+        }
+        //15
+        else if(opr==14)
+        {
+            // /*+-
+            System.out.println(d1+"/"+d2+"*"+m1+"+"+a1+"-"+b1);
+
+        }
+        //16
+        else if(opr==15){
+            // */+-
+            System.out.println(m1+"*"+d1+"/"+d2+"+"+a1+"-"+b1);
+
+        }
+        //17
+        else if(opr==16)
+        {
+            // +/*-
+            System.out.println(a1+"+"+d1+"/"+d2+"*"+m1+"-"+b1);
+
+        }
+        //18
+        else if(opr==17)
+        {
+            // /+*-
+            System.out.println(d1+"/"+d2+"+"+a1+"*"+m1+"-"+b1);
+
+        }
+        //19
+        else if(opr==18)
+        {
+
+            // -+*/
+            System.out.println(b1+"-"+a1+"+"+m1+"*"+d1+"/"+d2);
+
+        }
+        //20
+        else if(opr==19)
+        {
+            // +-*/
+            System.out.println(a1+"+"+b1+"-"+m1+"*"+d1+"/"+d2);
+
+        }
+        //21
+        else if(opr==20)
+        {
+            // *-+/
+            System.out.println(m1+"*"+b1+"-"+a1+"+"+d1+"/"+d2);
+
+        }
+        //22
+        else if(opr==21){
+            // -*+/
+            System.out.println(b1+"-"+m1+"*"+a1+"+"+d1+"/"+d2);
+
+        }
+        //23
+        else if(opr==22){
+            // +*-/
+            System.out.println(a1+"+"+m1+"*"+b1+"-"+d1+"/"+d2);
+
+        }
+        //24
+        else if(opr==23)
+        {
+            // *+-/
+            System.out.println(m1+"*"+a1+"+"+b1+"-"+d1+"/"+d2);
+
+        }

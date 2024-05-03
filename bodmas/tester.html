@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <b id="bodmas"></b>
+    <p>answer is </p>
+    <p id="res"></p>
+    <script>
+        // Function to generate two random numbers for division
+        function divide() {
+            let a, b;
+            do {
+                a = Math.floor(Math.random() * 10) + 1; // Generate a random number between 1 and 10
+                b = Math.floor(Math.random() * 9) + 2; // Generate a random number between 2 and 10
+            } while (a % b != 0);
+            return [a, b];
+        }
+
+        // Generate random numbers for the expression
+        let a1 = Math.floor(Math.random() * 10) + 1;
+        let m1 = Math.floor(Math.random() * 10) + 1;
+        let [d1, d2] = divide(); // Generate two numbers for division
+        let b1 = Math.floor(Math.random() * 100);
+        while (b1 < d1 / d2 * m1) {
+            b1 = Math.floor(Math.random() * 100);
+        }
+
+        // Display the expression on the HTML page
+        document.getElementById("bodmas").innerHTML = a1 + "+" + b1 + "-" + d1 + "/" + d2 + "*" + m1;
+
+        // Calculate the simplified expression
+        let simp = a1 + b1 - d1 / d2 * m1;
+        document.getElementById("res").innerHTML=simp; 
+    </script>
+</body>
+</html>

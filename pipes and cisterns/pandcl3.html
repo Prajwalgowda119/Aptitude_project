@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          .container {
+    max-width: 350px; /* Adjusted width */
+    height: 800px; /* Adjusted height */
+    margin: 0 auto;
+    padding: 1px;
+    flex-wrap: nowrap;
+    border-radius: 2%;
+    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 20px; /* Increased margin-bottom */
+}
+#inputans{
+    border-radius: 10%;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center;" >Pipes and Cisterns</h1>
+        <h3 style="text-align: center;">Level 3</h3>
+<p>Tap A takes <b id="A"></b> hrs to fill a tank and Tap Btakes <b id="B"></b> hrs to fill a tank. If both the taps are opened what is the time taken to fill the tank.</p>
+<input type="number" value="enter" id="inputans" placeholder="enter answer in hours">
+<div class="row " style="margin: 10px;">
+    <button onclick="check()">check</button>
+</div>
+    <div class="row">
+        <b id="res"></b>
+    </div>
+
+
+</div>
+    <script>
+ var a;
+    gen();
+
+
+  function gen()
+  {
+
+    var r1 = Math.floor(Math.random() * 50) + 1;
+     var r2 = Math.floor(Math.random() * 50) + 1;
+while(r1==r2)
+{
+    var r1 = Math.floor(Math.random() * 50) + 1;
+     var r2 = Math.floor(Math.random() * 50) + 1;
+}
+
+        a=(1/r1)+(1/r2);
+       a=1/a;
+       a=a.toFixed(2);
+       a=a*60;
+       if(isHalfHourMoreThanWholeHour(a))
+       {
+        document.getElementById("A").innerHTML=r1;
+document.getElementById("B").innerHTML=r2;
+console.log(a);
+console.log((a/6)*0.1);
+a=(a/6)*0.1;
+ 
+       }
+
+       else gen();
+
+  }
+ function check()
+ {
+    var inp =document.getElementById("inputans").value;
+
+    if(inp==a)
+    {
+        document.getElementById("res").innerHTML="Correct";
+    }
+    else{
+        document.getElementById("res").innerHTML="Wrong"
+    }
+ }
+  
+ function isHalfHourMoreThanWholeHour(minutes) {
+    // Convert minutes to hours
+    const hours = minutes / 60;
+    
+    // Check if the hours is half an hour more than a whole hour
+    const fractionalPart = hours - Math.floor(hours);
+    return fractionalPart === 0.25 || fractionalPart === 0.75;
+}
+
+
+       function number_test(n)
+{
+   var result = (n - Math.floor(n)) !== 0; 
+   
+  if (result)
+    return false;
+   else
+     return true;
+  }
+    </script>
+
+</body>
+</html>
